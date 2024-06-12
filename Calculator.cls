@@ -15,7 +15,7 @@ public class Calculator {
     public Integer Multiply(Integer num1, Integer num2) {
         Integer product = 0;
         for(Integer i = 0; i<num2; i++) {
-            product += this.Add(num1, 0);
+            product = product + num1;
             
         }
         
@@ -64,6 +64,18 @@ public class Calculator {
         }
         return quotient;
         }
+    }
+
+    //challenge 5
+    public static Decimal mod(Integer num1, Integer num2) {
+        Integer quotient = 0;
+        Integer count = 0;
+        
+        for (Integer i = 0; i < num2; i++) {   
+            quotient = quotient - num1;     
+            count++;    
+        }  
+        return quotient;   
     }
 
 }
