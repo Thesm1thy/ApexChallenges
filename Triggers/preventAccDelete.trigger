@@ -1,4 +1,6 @@
 trigger preventAccDelete on Account (before delete) {
+
+if (Trigger.isBefore && Trigger.isDelete) {
     // Set to hold acc Ids
     Set<Id> accountIds = new Set<Id>();
 
@@ -16,12 +18,14 @@ trigger preventAccDelete on Account (before delete) {
         accountsWithContacts.add(con.AccountId);
     }
 
-    //Throw error to prevent deletion
+    //add error
     for(Account acc : Trigger.old){
         if(accountsWithContacts.contains(acc.Id)){
             acc.addError('Cannot delete account because it has an associated contact.');
         }
     }
 
+
+}
 
 }
