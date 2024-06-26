@@ -12,8 +12,6 @@ trigger createRelatedContact on Account (after insert) {
         newRelatedContacts.add(newCon);
     }
 
-    // Insert contacts
-
     if(!newRelatedContacts.isEmpty()){
         insert newRelatedContacts;
     }
